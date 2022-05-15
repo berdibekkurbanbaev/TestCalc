@@ -1,31 +1,34 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Service {
-    static boolean chapter(String nam) throws Exception {
 
-        ArrayList<String> roman = new ArrayList<>();
-        roman.add("0");
-        roman.add("I");
-        roman.add("II");
-        roman.add("III");
-        roman.add("IV");
-        roman.add("V");
-        roman.add("VI");
-        roman.add("VII");
-        roman.add("VIII");
-        roman.add("IX");
-        roman.add("X");
-        for (String rom : roman) {
-            if (nam.equals(rom)) {
+
+    static boolean subj(String symbols) throws Exception {
+
+        ArrayList<String> romanNumb = new ArrayList<>();
+        romanNumb.add("0");
+        romanNumb.add("I");
+        romanNumb.add("II");
+        romanNumb.add("III");
+        romanNumb.add("IV");
+        romanNumb.add("V");
+        romanNumb.add("VI");
+        romanNumb.add("VII");
+        romanNumb.add("VIII");
+        romanNumb.add("IX");
+        romanNumb.add("X");
+        for (String roman : romanNumb) {
+            if (symbols.equals(roman)) {
                 return true;
             }
         }
         return false;
 
     }
-    public static String convertNumToRoman(int numArabian) {
+    public static String convertToRomanNumb(int arabNumb) {
         String[] roman = {"O", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII",
                 "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
                 "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", "XXIX", "XXX", "XXXI",
@@ -37,11 +40,11 @@ public class Service {
                 "LXXXI", "LXXXII", "LXXXIII", "LXXXIV", "LXXXV", "LXXXVI", "LXXXVII", "LXXXVIII", "LXXXIX", "XC",
                 "XCI", "XCII", "XCIII", "XCIV", "XCV", "XCVI", "XCVII", "XCVIII", "XCIX", "C"
         };
-        final String s = roman[numArabian];
+        final String s = roman[arabNumb];
         return s;
     }
 
-    static int romanToNumber(String roman){
+    static int romanNumber(String roman){
 
         if (roman.equals("I")) {
             return 1;
@@ -65,7 +68,7 @@ public class Service {
             return 10;
         }
 
-        throw new RuntimeException("try again:");
+        throw new RuntimeException("try again!");
 
     }
 
@@ -85,32 +88,32 @@ public class Service {
             result = a / b;
 
         } else {
-            throw new RuntimeException("Неверный формат данных!");
+            throw new RuntimeException("try again!");
         }
 
         return result;
     }
-    static  void arabicCalc(String numbr1, String numbr2,String simbols )throws Exception{
+    static  void arabicCalc(String numeric1, String numeric2,String simbol )throws Exception{
 
-        int numbr3,numbr4,result;
-        numbr3 = Integer.parseInt(numbr1);
-        numbr4 = Integer.parseInt(numbr2);
-        result = Service.calculated(numbr3, numbr4, simbols);
-        System.out.println("Result in Arabic num ");
-        System.out.println( numbr3+" "+simbols+' '+numbr4 +" = "+ result);
+        int numeric3,numeric4,result;
+        numeric3 = Integer.parseInt(numeric1);
+        numeric4 = Integer.parseInt(numeric2);
+        result = Service.calculated(numeric3, numeric4, simbol);
+        System.out.println("Result in Arabic operation: ");
+        System.out.println(numeric3+" "+simbol+' '+ numeric4 + " = " + result);
 
     }
     static void romanCalc(String nam, String nam1, String simbol) throws Exception {
         int nambr1, nambr2, result1;
 
-            nambr1 = Service.romanToNumber(nam);
-            nambr2 = Service.romanToNumber(nam1);
+            nambr1 = Service.romanNumber(nam);
+            nambr2 = Service.romanNumber(nam1);
 
-            System.out.println("Result in Roman num");
+            System.out.println("Result in Roman operation: ");
             result1 = Service.calculated(nambr1, nambr2, simbol);
-            String result =Service. convertNumToRoman(result1);
-            String num1 = Service.convertNumToRoman(nambr1);
-            String num2 = Service.convertNumToRoman(nambr2);
+            String result =Service.convertToRomanNumb(result1);
+            String num1 = Service.convertToRomanNumb(nambr1);
+            String num2 = Service.convertToRomanNumb(nambr2);
             System.out.println(num1 + " " + simbol + " " + num2 + " = " + result);
 
     }
